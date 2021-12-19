@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class StudentsList extends StatelessWidget {
-  static const routename = '/studentslist';
+  static const routeName = '/studentslist';
 
   const StudentsList({Key? key}) : super(key: key);
 
@@ -16,9 +16,9 @@ class StudentsList extends StatelessWidget {
         title: const Text('List of students'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(10.0),
         child: FutureBuilder(
-          future: studentsData.fetchStudents(),
+          future: studentsData.getStudents(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
@@ -33,7 +33,7 @@ class StudentsList extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () => Navigator.of(context).pushNamed(
-                          StudentDetails.routename,
+                          StudentDetails.routeName,
                           arguments: studentsData.students[index].id),
                       child: ListTile(
                         title: Text(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class StudentDetails extends StatelessWidget {
-  static const routename = '/studentdetails';
+  static const routeName = '/studentdetails';
 
   const StudentDetails({Key? key}) : super(key: key);
   @override
@@ -29,15 +29,18 @@ class StudentDetails extends StatelessWidget {
             }
             return Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Column(
-                children: [
-                  Text('ID : ${snapshot.data!['id']}'),
-                  Text(
-                    'NAME : ${snapshot.data!['name']}',
-                  ),
-                  Text('AGE : ${snapshot.data!['age']}'),
-                  Text('EMAIL : ${snapshot.data!['email']}'),
-                ],
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Column(
+                  children: [
+                    Text('ID : ${snapshot.data!['id']}'),
+                    Text(
+                      'NAME : ${snapshot.data!['name']}',
+                    ),
+                    Text('AGE : ${snapshot.data!['age']}'),
+                    Text('EMAIL : ${snapshot.data!['email']}'),
+                  ],
+                ),
               ),
             );
           },
