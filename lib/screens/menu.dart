@@ -8,29 +8,25 @@ class Menu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Options'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton.icon(
-                onPressed: () =>
-                    Navigator.of(context).pushNamed(StudentsList.routeName),
-                icon: const Icon(Icons.navigate_next),
-                label: const Text('Students List')),
-            ElevatedButton.icon(
-                onPressed: () =>
-                    Navigator.of(context).pushNamed(SubjectsList.routeName),
-                icon: const Icon(Icons.navigate_next),
-                label: const Text('Subjects')),
-            ElevatedButton.icon(
-                onPressed: () =>
-                    Navigator.of(context).pushNamed(ClassroomList.routeName),
-                icon: const Icon(Icons.navigate_next),
-                label: const Text('Classrooms'))
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Options'),
+          bottom: const TabBar(
+            indicatorSize: TabBarIndicatorSize.label,
+            tabs: [
+              Tab(text: 'Classrooms'),
+              Tab(text: 'Subjects'),
+              Tab(text: 'Students'),
+            ],
+          ),
+        ),
+        body: const TabBarView(
+          children: <Widget>[
+            ClassroomList(),
+            SubjectsList(),
+            StudentsList(),
           ],
         ),
       ),
