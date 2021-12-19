@@ -11,9 +11,6 @@ class SubjectsList extends StatelessWidget {
   Widget build(BuildContext context) {
     final sub = Provider.of<Subjects>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Subjects'),
-      ),
       body: FutureBuilder(
         future: sub.getSubjects(),
         builder: (context, snapshot) {

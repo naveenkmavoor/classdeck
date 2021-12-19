@@ -11,9 +11,6 @@ class ClassroomList extends StatelessWidget {
   Widget build(BuildContext context) {
     final classroomsInstance = Provider.of<ClassRooms>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Classrooms'),
-      ),
       body: FutureBuilder(
         future: classroomsInstance.getClassroom(),
         builder: (context, snapshot) {

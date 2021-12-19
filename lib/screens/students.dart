@@ -12,9 +12,6 @@ class StudentsList extends StatelessWidget {
   Widget build(BuildContext context) {
     final studentsData = Provider.of<Students>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('List of students'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: FutureBuilder(
